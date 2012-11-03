@@ -1,0 +1,29 @@
+body {
+  background-color: #ebebeb
+}
+
+.main {
+  display: block;
+  margin: 50px 300px;
+}
+
+.logo .logo-img {
+  overflow: hidden;
+}
+
+.logo {
+  float: left;
+  width: 205px;
+}
+
+.text-block {
+  float: left;
+  margin: 100px 50px;
+  font-family: Helvetica;
+  color: #847e73;
+}
+
+.contacts a {
+  color: #847e73;
+  text-decoration: none;
+}
