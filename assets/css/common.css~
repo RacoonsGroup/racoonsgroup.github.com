@@ -1,10 +1,8 @@
 @font-face {
   font-family: Intro;
-  src: url(intro.ttf) format('truetype'),
-       url(intro.otf) format('opentype'),
-       url(intro.svg#webfontE40g3tc3) format('svg');
-  font-weight: normal;
-  font-style: normal;
+  src: url(intro.ttf);
+  src: url(intro.otf);
+  src: url(intro.svg);
 }
 
 body {
@@ -13,9 +11,8 @@ body {
 }
 
 .main {
-  width: 638px;
   display: block;
-  margin: 50px auto;
+  margin: 50px 300px;
 }
 
 .logo .logo-img {
@@ -30,7 +27,7 @@ body {
 .text-block {
   float: left;
   margin: 100px 50px;
-  font-family: Intro;
+  font-family: Helvetica;
   color: #847e73;
 }
 
