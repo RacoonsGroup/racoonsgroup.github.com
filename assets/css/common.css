@@ -1,5 +1,13 @@
+@font-face {
+  font-family: Intro;
+  src: url(intro.ttf);
+  src: url(intro.otf);
+  src: url(intro.svg);
+}
+
 body {
-  background-color: #ebebeb
+  background-color: #ebebeb;
+  font-family: Intro;
 }
 
 .main {
