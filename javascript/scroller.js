@@ -48,7 +48,6 @@ jQuery(function($) {
                 $(window).scroll(function() {
                     if (App.itsMobile()) {
                         if (App.iPad()) {
-                            alert(1)
                             //Menu show/Hide
                             App.menuShowHide()
                             //Check active page
