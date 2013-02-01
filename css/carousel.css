@@ -1,0 +1,43 @@
+/* Circular Content Carousel Style */
+.ca-wrapper{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+.ca-item-main{
+    position:absolute;
+    overflow:hidden;
+    background: url("../backgrounds/about-us.png");
+    
+    padding: 10px;
+}
+.ca-content-wrapper{
+    position:absolute;
+    width:0px; /* expands to width of the wrapper minus 1 element */
+    z-index:10000;
+    overflow:hidden;
+}
+.ca-content{
+    width:660px;
+    overflow:hidden;
+}
+.ca-nav span{
+    width:25px;
+    height:38px;
+    background:transparent url(../images/arrows.png) no-repeat top left;
+    position:absolute;
+    top:20%;
+    left: 0px;
+    text-indent:-9000px;
+    opacity:0.7;
+    cursor:pointer;
+    z-index:100;
+}
+.ca-nav span.ca-nav-next{
+    background-position:top right;
+    left:auto;
+    right: 0px;
+}
+.ca-nav span:hover{
+    opacity:1.0;
+}

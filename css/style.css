@@ -1,0 +1,322 @@
+/*Modal*/
+.modal-item-wrap {
+    position: relative;
+}
+.modal-item-wrap .go-back, .modal-item-wrap .more-info {
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    background: #000;
+    color: #fff;
+    padding: 5px 5px 5px 15px;
+}
+.modal-item-wrap .more-info {
+    top: 54px;
+    padding-left: 23px;
+}
+.modal-item-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 520px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    color: #fff;
+    opacity: 0;
+    box-shadow: 0 50px 100px 30px #000;
+}
+.modal-item-overlay h5 {
+    margin-bottom: 10px;
+    font-size: 24pt;
+}
+.modal-item-overlay p {
+    font-size: 10pt;
+    margin-bottom: 10px;
+}
+.modal-item-overlay p.buttons {
+    text-align: center;
+}
+.label-backend {
+    background-color: #B10F00;
+}
+.label-frontend {
+    background-color: #DD5229;
+}
+.label-design {
+    background-color: #34c959;
+}
+.label-mobile {
+    background-color: #0077b3;
+}
+/*Modal end*/
+
+* {
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+a:hover {
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: lighter;
+    margin: 0 0 20px;
+    padding: 0;
+}
+p {
+    margin: 0 0 20px;
+    padding: 0;
+}
+h1 {
+    font-size: 40pt;
+}
+h2 {
+
+}
+h3 {
+    font-size: 18pt;
+}
+
+#about-us-title, #portfolio-title, #team-title, #contacts-title {
+    cursor: pointer;
+}
+
+.portfolio-wrap, .team-wrap, .contacts-wrap {
+    margin-top: -13px;
+}
+
+/*Menu*/
+
+.menu-wraper {
+    height: 385px;
+    background: url('../backgrounds/menu.png') center bottom no-repeat;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    display: none;
+    width: 240px;
+}
+.menu {
+    display: none;
+}
+.menu-logo {
+    text-align: center;
+    padding: 20px 0;
+}
+.menu ul {
+    margin: 0;
+    padding: 0 20px;
+    list-style: none;
+}
+.menu li {
+    cursor: pointer;
+    font-size: 15pt;
+    padding: 10px;
+    margin: 5px 0;
+    text-align: center;
+}
+.menu li a {
+    color: #000;
+}
+.menu li.active {
+    background: #000;
+}
+.menu li.active a {
+    color: #fff
+}
+
+/*Main Page*/
+
+.main-page {
+    height: 1000px;
+}
+.logo {
+    text-align: center;
+    margin-top: 370px;
+    position: fixed;
+    z-index: 1;
+}
+.hello-world-wrap {
+    background: url("../images/spk.png") 173px 30px no-repeat;
+    padding-left: 30px;
+}
+.hello-world {
+    text-align: right;
+    margin-bottom: 5px;
+    margin-right: 60px;
+}
+.hello-world span {
+    font-size: 24pt;
+    color: #fff;
+    background: #000;
+    padding: 20px 15px;
+    display: inline-block;
+}
+.slogan {
+    text-align: right;
+    padding: 5px 0px;
+    font-size: 20pt;
+}
+
+/*About Us*/
+
+.about-us-top {
+    background: url("../backgrounds/about-us-top.png") !important;
+    height: 13px;
+    z-index: 2;
+    position: relative;
+}
+.about-us {
+    background: url("../backgrounds/about-us.png");
+    z-index: 2;
+    position: relative;
+    padding: 20px 0;
+    height: 568px;
+}
+.about-us p {
+    font-size: 10pt;
+}
+.technology {
+    margin-top: 30px;
+}
+    .technology h3 {
+        text-align: center;
+        margin: 10px 0;
+    }
+    .technology p {
+        padding: 0 10px;
+        text-align: justify;
+    }
+    .rails-logo, .javascript-logo, .html-css-logo {
+        height: 135px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .rails-logo {
+        background-image: url("../images/rails_icon.png");
+    }
+    .javascript-logo {
+        background-image: url("../images/javascript.png");
+    }
+    .html-css-logo {
+        background-image: url("../images/html_css.png");
+    }
+
+/*Portfolio*/
+
+.portfolio-top {
+    background: url("../backgrounds/portfolio-top.png") !important;
+    height: 13px;
+    z-index: 3;
+    position: relative;
+}
+.portfolio {
+    background: url("../backgrounds/portfolio.png");
+    z-index: 3;
+    position: relative;
+    padding: 20px 0;
+    color: #fff;
+    height: 485px;
+}
+.portfolio-item {
+    padding: 10px;
+    text-align: center;
+}
+.portfolio-item-image {
+    display: inline-block;
+    position: relative;
+    margin: 5px;
+    border: 2px solid #fff;
+}
+.portfolio-item-image  img {
+    width: 100%;
+}
+.portfolio-item-image a {
+    color: #fff;
+}
+.portfolio-item-overlay {
+    display: inline-block;
+    box-shadow: inset 0 0 160px 40px #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.portfolio-item-about {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+.portfolio-item-about h5 {
+    font-size: 22pt;
+    text-align: left;
+    margin-bottom: 5px;
+}
+.portfolio-item-about p {
+    text-align: left;
+    font-size: 10pt;
+    margin: 0;
+}
+
+/*Team*/
+
+.team-top {
+    background: url("../backgrounds/team-top.png") !important;
+    height: 13px;
+    z-index: 4;
+    position: relative;
+}
+.team {
+    background: #fff;
+    z-index: 4;
+    position: relative;
+    padding: 20px 0 0;
+}
+.team .row {
+    overflow: hidden;
+}
+#team {
+    height: 360px;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.person {
+    height: 310px;
+}
+.person-position {
+    font-size: 10pt;
+}
+.person-title p {
+    margin: 0;
+    padding: 0;
+}
+.person-name {
+    font-size: 18pt;
+}
+
+/*Contacts*/
+
+.contacts-top {
+    background: url("../backgrounds/contacts-top.png") !important;
+    height: 13px;
+    z-index: 5;
+    position: relative;
+}
+.contacts {
+    padding: 20px 0;
+    height: 315px;
+    background: url("../backgrounds/contacts.png");
+    z-index: 5;
+    position: relative;
+    color: #fff;
+    font-size: 18pt;
+}
+.contacts i {
+    font-size: 28px;
+    width: 30px;
+    display: inline-block;
+    text-align: center;
+}
+.contacts #map {
+    border: 2px solid #fff;
+}

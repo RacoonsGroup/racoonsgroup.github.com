@@ -1,0 +1,68 @@
+@media screen and (max-width:767px){
+	h1 {
+		padding: 0 10px 20px;
+	}
+	.about-us-top, .portfolio-top, .team-top, .contacts-top {
+		display: none;
+	}
+
+	.mobile-top, .mobile-bottom {
+		background: url("../backgrounds/mobile.png");
+		position: fixed;
+		width: 100%;
+		z-index: 100;
+		text-align: center;
+		padding: 10px 0;
+	}
+	.mobile-top {
+		top: 0;
+		border-bottom: 2px solid #000;
+	}
+	.mobile-top img {
+		height: 40px;
+	}
+	.mobile-bottom {
+		border-top: 2px solid #000;
+		bottom: 0;
+	}
+	.mobile-bottom ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.mobile-bottom li {
+		display: inline-block;
+	}
+	.mobile-bottom a {
+		font-size: 10pt;
+		padding: 0 10px;
+	}
+
+	.all-pages-wrap {
+		margin: 60px 0 43px;
+	}
+
+	.about-us-top {
+		display: none;
+	}
+	.about-us, .portfolio, .contacts {
+		height: auto;
+	}
+	.about-us p, .contacts p {
+		padding: 0 10px 20px;
+	}
+
+	.person {
+		text-align: center;
+	}
+	.ca-nav span.ca-nav-next {
+		right: 20px;
+	}
+	.ca-nav span {
+		left: 20px;
+	}
+
+	.contacts p {
+		font-size: 16pt;
+	}
+}

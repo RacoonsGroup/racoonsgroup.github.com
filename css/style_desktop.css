@@ -1,0 +1,6 @@
+@media screen and (min-width:768px) {
+	body {
+    	background: url("../backgrounds/mainbg.jpg") top center repeat-y;
+    	background-attachment: fixed;
+	}
+}
