@@ -78,7 +78,7 @@ h3 {
     cursor: pointer;
 }
 
-.portfolio-wrap, .team-wrap, .contacts-wrap {
+.about-us-wrap, .portfolio-wrap, .team-wrap, .contacts-wrap {
     margin-top: -13px;
 }
 
@@ -125,13 +125,14 @@ h3 {
 /*Main Page*/
 
 .main-page {
-    height: 1000px;
+    margin-top: 50px;
 }
 .logo {
     text-align: center;
-    margin-top: 370px;
-    position: fixed;
-    z-index: 1;
+    margin-bottom: 50px;
+}
+.logo-wrap {
+    text-align: center;
 }
 .hello-world-wrap {
     background: url("../images/spk.png") 173px 30px no-repeat;
@@ -140,7 +141,7 @@ h3 {
 .hello-world {
     text-align: right;
     margin-bottom: 5px;
-    margin-right: 60px;
+    margin-right: 111px;
 }
 .hello-world span {
     font-size: 24pt;
@@ -168,10 +169,6 @@ h3 {
     z-index: 2;
     position: relative;
     padding: 20px 0;
-    height: 568px;
-}
-.about-us p {
-    font-size: 10pt;
 }
 .technology {
     margin-top: 30px;
@@ -211,9 +208,8 @@ h3 {
     background: url("../backgrounds/portfolio.png");
     z-index: 3;
     position: relative;
-    padding: 20px 0;
+    padding: 20px 0 40px;
     color: #fff;
-    height: 485px;
 }
 .portfolio-item {
     padding: 10px;
@@ -281,7 +277,11 @@ h3 {
     overflow: hidden;
 }
 .person {
-    height: 310px;
+    width: 170px;
+    margin-right: -90px;
+}
+.person:first-child {
+    /*margin-left: 40px;*/
 }
 .person-position {
     font-size: 10pt;
@@ -289,6 +289,7 @@ h3 {
 .person-title p {
     margin: 0;
     padding: 0;
+    display: none;
 }
 .person-name {
     font-size: 18pt;
