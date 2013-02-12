@@ -3,18 +3,17 @@
 <head>
     <title></title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap-custom.min.css">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
     <!--Style-->
-    <link rel="stylesheet" href="css/style_desktop.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/carousel.css">
-    <link rel="stylesheet" href="css/style_tablet.css">
+
 
     <!--Script-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
@@ -24,6 +23,7 @@
     <script type="text/javascript" src="javascript/portfolio.js"></script>
     <script type="text/javascript" src="javascript/scroller.js"></script>
     <script type="text/javascript" src="javascript/desktop-scripts.js"></script>
+    <script type="text/javascript" src="javascript/jquery.stellar.min.js"></script>
 
     <!--[if IE 7]>
     <link rel="stylesheet" href="css/font-awesome-ie7.min.css">
@@ -32,78 +32,15 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-23872959-3']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-    </script>
-
 </head>
 <body>
-<!-- Mobile navigation -->
-<div class="mobile-top hidden-desktop">
-    <div class="container">
-        <div class="row">
-            <div class="span12">
-                <img src="images/racoons_logo.png" alt="Racoons Group">
-            </div>
-        </div>
-    </div>
-</div>
-<div class="mobile-bottom hidden-desktop">
-    <div class="container">
-        <div class="row">
-            <div class="span12">
-                <ul>
-                    <li><a href="#about-us-title">О нас</a></li>
-                    <li><a href="#portfolio-title">Работы</a></li>
-                    <li><a href="#team-title">Команда</a></li>
-                    <li><a href="#contacts-title">Контакты</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Mobile navigation end -->
-
-
-<!-- Menu -->
-<div class="container">
-    <div class="row">
-        <div class="span3">
-            <div class="menu-wraper">
-                <div class="menu">
-                    <div class="menu-logo">
-                        <img src="images/big_logo.png" alt="">
-                    </div>
-                    <ul>
-                        <li class="active"><a href="#about-us-title">О нас</a></li>
-                        <li><a href="#portfolio-title">Последние работы</a></li>
-                        <li><a href="#team-title">Наша команда</a></li>
-                        <li><a href="#contacts-title">Контакты</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Menu End -->
-
 <!-- Pages -->
 <div class="all-pages-wrap">
     <!-- Main Page -->
-    <div class="main-page visible-desktop">
+    <div class="main-page page">
         <div class="container">
             <div class="row">
-                <div class="span6 offset3">
+                <div class="span6 offset5">
                     <div class="logo">
                         <div class="hello-world-wrap">
                             <div class="hello-world">
@@ -124,31 +61,36 @@
     <!-- Main Page End -->
 
     <!-- About Us -->
-    <div id="about-us-anchor" class="about-us-wrap">
-        <div class="about-us-top"></div>
-        <div id="about-us" class="about-us">
+    <div class="about-us page">
+        <div class="about-us-header">
             <div class="container">
                 <div class="row">
-                    <div class="span9 offset3">
+                    <div class="span12">
                         <h1 id="about-us-title" class="page-main-title">О нас</h1>
-                        <p>Мы - команда молодых, амбициозных и талантливых специалистов. Для нас на первом месте стоит заказчик и его задачи. Наши разработчики не просто пишут код, они становятся частью проекта, работают как единый сплочённый механизм. Наши дизайнеры - творческие и инициативные люди. Наши менеджеры всегда на связи с заказчиком и чутко реагируют на все их просьбы и пожелания. В работе мы используем Agile-методологию. Это позволяет нам всегда быть в курсе желаний заказчика, а часто и предугадывать их.</p>
-                        <p>Вам нужен интернет магазин, для увеличения вашей прибыли? У нас серьёзный опыт работы в этой сфере. По вашему желанию мы можем использовать готовые наработки, или же сделать абсолютно индивидуальный, уникальный продукт. Или может быть Вы молодой стартапер и хотите покорить мир своей идеей? Мы поможем Вам воплотить её в жизнь!</p>
-                        <div class="row technology">
-                            <div class="span3 rails">
-                                <div class="rails-logo"></div>
-                                <h3>Ruby-rails way</h3>
-                                <p>В нашей разработке мы используем передовой язык программирования - Ruby. Фрейморк Rails, основанный на нём, позволяет нам создавать наши продукты быстро и качественно.</p>
-                            </div>
-                            <div class="span3 javascript">
-                                <div class="javascript-logo"></div>
-                                <h3>Dynamic and alive</h3>
-                                <p>Для разработки интерфейсной части мы используем только самые актуальные и хорошо себя зарекомендовавшие инструменты. С их помощью мы можем создавать как простые украшения, так и серьёзные интерфейсно-ориентированные проекты.</p>
-                            </div>
-                            <div class="span3 html-css">
-                                <div class="html-css-logo"></div>
-                                <h3>Modern technology</h3>
-                                <p>Наши верстальщики используют новейшие разработки и тенденции в мире веба. На выходе Вы получаете продукт, качеству исполнения которого позавидуют Ваши конкуренты!</p>
-                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <p>Мы - команда молодых, амбициозных и талантливых специалистов. Для нас на первом месте стоит заказчик и его задачи. Наши разработчики не просто пишут код, они становятся частью проекта, работают как единый сплочённый механизм. Наши дизайнеры - творческие и инициативные люди. Наши менеджеры всегда на связи с заказчиком и чутко реагируют на все их просьбы и пожелания. В работе мы используем Agile-методологию. Это позволяет нам всегда быть в курсе желаний заказчика, а часто и предугадывать их.</p>
+                    <p>Вам нужен интернет магазин, для увеличения вашей прибыли? У нас серьёзный опыт работы в этой сфере. По вашему желанию мы можем использовать готовые наработки, или же сделать абсолютно индивидуальный, уникальный продукт. Или может быть Вы молодой стартапер и хотите покорить мир своей идеей? Мы поможем Вам воплотить её в жизнь!</p>
+                    <div class="row technology">
+                        <div class="span4 rails">
+                            <div class="rails-logo"></div>
+                            <h3>Ruby-rails way</h3>
+                            <p>В нашей разработке мы используем передовой язык программирования - Ruby. Фрейморк Rails, основанный на нём, позволяет нам создавать наши продукты быстро и качественно.</p>
+                        </div>
+                        <div class="span4 javascript">
+                            <div class="javascript-logo"></div>
+                            <h3>Dynamic and alive</h3>
+                            <p>Для разработки интерфейсной части мы используем только самые актуальные и хорошо себя зарекомендовавшие инструменты. С их помощью мы можем создавать как простые украшения, так и серьёзные интерфейсно-ориентированные проекты.</p>
+                        </div>
+                        <div class="span4 html-css">
+                            <div class="html-css-logo"></div>
+                            <h3>Modern technology</h3>
+                            <p>Наши верстальщики используют новейшие разработки и тенденции в мире веба. На выходе Вы получаете продукт, качеству исполнения которого позавидуют Ваши конкуренты!</p>
                         </div>
                     </div>
                 </div>
@@ -158,54 +100,61 @@
     <!-- About Us End -->
 
     <!-- Portfolio -->
-    <div id="portfolio-anchor" class="portfolio-wrap">
-        <div class="portfolio-top"></div>
-        <div class="portfolio">
+    <div class="portfolio page">
+        <div class="portfolio-header">
             <div class="container">
                 <div class="row">
-                    <div class="span9 offset3">
-                        <h1 id="portfolio-title" class="page-main-title">Последние работы</h1>
-                        <div class="row">
-                            <div class="span3">
-                                <div class="portfolio-item-image">
-                                    <img src="images/battlekeys.png">
-                                    <a href="http://www.battlekeys.com"><!-- data-toggle="modal" -->
-                                        <div class="portfolio-item-overlay">
-                                            <div class="portfolio-item-about">
-                                                <h5>Battlekeys</h5>
-                                                <p>магазин оптовой продажи игр</p>
-                                            </div>
+                    <div class="span12">
+                        <h1 id="portfolio-title" class="page-main-title">О нас</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span6">
+                            <div class="portfolio-item-image">
+                                <img src="images/battlekeys.png">
+                                <a href="http://www.battlekeys.com"><!-- data-toggle="modal" -->
+                                    <div class="portfolio-item-overlay">
+                                        <div class="portfolio-item-about">
+                                            <h5>Battlekeys</h5>
+                                            <p>магазин оптовой продажи игр</p>
                                         </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="span3">
-                                <div class="portfolio-item-image">
-                                    <img src="images/tixis.png">
-                                    <a href="http://www.tixis.ru"><!-- data-toggle="modal" -->
-                                        <div class="portfolio-item-overlay">
-                                            <div class="portfolio-item-about">
-                                                <h5>Tixis</h5>
-                                                <p>онлайн продажа билетов</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="span3 visible-desktop">
-                                <div class="portfolio-item-image">
-                                    <img src="images/demodekoz.png">
-                                    <a href="http://www.demodekoz-lechenie.ru"><!-- data-toggle="modal" -->
-                                        <div class="portfolio-item-overlay">
-                                            <div class="portfolio-item-about">
-                                                <h5>Демодекоз</h5>
-                                                <p>магазин и форум для больных демодекозом</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
+                        <div class="span6">
+                            <div class="portfolio-item-image">
+                                <img src="images/tixis.png">
+                                <a href="http://www.tixis.ru"><!-- data-toggle="modal" -->
+                                    <div class="portfolio-item-overlay">
+                                        <div class="portfolio-item-about">
+                                            <h5>Tixis</h5>
+                                            <p>онлайн продажа билетов</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span6 visible-desktop">
+                    <div class="portfolio-item-image">
+                        <img src="images/demodekoz.png">
+                        <a href="http://www.demodekoz-lechenie.ru"><!-- data-toggle="modal" -->
+                            <div class="portfolio-item-overlay">
+                                <div class="portfolio-item-about">
+                                    <h5>Демодекоз</h5>
+                                    <p>магазин и форум для больных демодекозом</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -214,89 +163,86 @@
     <!-- Portfolio End -->
 
     <!-- Team -->
-    <div class="team-wrap">
-        <div class="team-top"></div>
-        <div class="team">
-            <div class="container">
-                <div class="row">
-                    <div class="span9 offset3">
-                        <h1 id="team-title" class="page-main-title">Наша команда</h1>
-                        <div id="team" class="row ca-container">
-                            <div class="ca-wrapper">
+    <div class="team page">
+        <div class="container">
+            <div class="row">
+                <div class="span9 offset3">
+                    <h1 id="team-title" class="page-main-title">Наша команда</h1>
+                    <div id="team" class="row ca-container">
+                        <div class="ca-wrapper">
 
-                                <div class="span3 person ca-item ca-item-1">
-                                    <div class="person-title">
-                                        <p class="person-name">Кирилл</p>
-                                        <p class="person-position">лидер Енотов</p>
-                                    </div>
-                                    <img src="images/person4.jpg" usemap="person4">
+                            <div class="span3 person ca-item ca-item-1">
+                                <div class="person-title">
+                                    <p class="person-name">Кирилл</p>
+                                    <p class="person-position">лидер Енотов</p>
                                 </div>
-
-                                <div class="span3 person ca-item ca-item-2">
-                                    <div class="person-title">
-                                        <p class="person-name">Андрей</p>
-                                        <p class="person-position">заботливый менеджер</p>
-                                    </div>
-                                    <img src="images/person6.jpg" usemap="person3">
-                                </div>
-
-                                <div class="span3 person ca-item ca-item-3">
-                                    <div class="person-title">
-                                        <p class="person-name">Александр</p>
-                                        <p class="person-position">гуру разработки</p>
-                                    </div>
-                                    <img src="images/person2.jpg" usemap="person2">
-                                </div>
-
-                                <div class="span3 person ca-item ca-item-4">
-                                    <div class="person-title">
-                                        <p class="person-name">Владимир</p>
-                                        <p class="person-position">неутомимый искатель знаний</p>
-                                    </div>
-                                    <img src="images/person3.jpg" usemap="person3">
-                                </div>
-
-                                <div class="span3 person ca-item ca-item-5">
-                                    <div class="person-title">
-                                        <p class="person-name">Николай</p>
-                                        <p class="person-position">пунктуальность и надёжность</p>
-                                    </div>
-                                    <img src="images/person5.jpg" usemap="person4">
-                                </div>
-
-                                <div class="span3 person ca-item ca-item-7">
-                                    <div class="person-title">
-                                        <p class="person-name">Марат</p>
-                                        <p class="person-position">кладезь позитива</p>
-                                    </div>
-                                    <img src="images/person7.jpg" usemap="person1">
-                                </div>
-
-                                <div class="span3 person ca-item ca-item-8">
-                                    <div class="person-title">
-                                        <p class="person-name">Сергей</p>
-                                        <p class="person-position">тяжело в учении, легко в бою</p>
-                                    </div>
-                                    <img src="images/person8.jpg" usemap="person1">
-                                </div>
-
-                                <div class="span3 person ca-item ca-item-9">
-                                    <div class="person-title">
-                                        <p class="person-name">Фёдор</p>
-                                        <p class="person-position">знает, как сделать лучше</p>
-                                    </div>
-                                    <img src="images/person9.jpg" usemap="person1">
-                                </div>
-
-                                <div class="span3 person ca-item ca-item-10">
-                                    <div class="person-title">
-                                        <p class="person-name">Евгений</p>
-                                        <p class="person-position">генератор идей</p>
-                                    </div>
-                                    <img src="images/person10.jpg" usemap="person1">
-                                </div>
-
+                                <img src="images/person4.jpg" usemap="person4">
                             </div>
+
+                            <div class="span3 person ca-item ca-item-2">
+                                <div class="person-title">
+                                    <p class="person-name">Андрей</p>
+                                    <p class="person-position">заботливый менеджер</p>
+                                </div>
+                                <img src="images/person6.jpg" usemap="person3">
+                            </div>
+
+                            <div class="span3 person ca-item ca-item-3">
+                                <div class="person-title">
+                                    <p class="person-name">Александр</p>
+                                    <p class="person-position">гуру разработки</p>
+                                </div>
+                                <img src="images/person2.jpg" usemap="person2">
+                            </div>
+
+                            <div class="span3 person ca-item ca-item-4">
+                                <div class="person-title">
+                                    <p class="person-name">Владимир</p>
+                                    <p class="person-position">неутомимый искатель знаний</p>
+                                </div>
+                                <img src="images/person3.jpg" usemap="person3">
+                            </div>
+
+                            <div class="span3 person ca-item ca-item-5">
+                                <div class="person-title">
+                                    <p class="person-name">Николай</p>
+                                    <p class="person-position">пунктуальность и надёжность</p>
+                                </div>
+                                <img src="images/person5.jpg" usemap="person4">
+                            </div>
+
+                            <div class="span3 person ca-item ca-item-7">
+                                <div class="person-title">
+                                    <p class="person-name">Марат</p>
+                                    <p class="person-position">кладезь позитива</p>
+                                </div>
+                                <img src="images/person7.jpg" usemap="person1">
+                            </div>
+
+                            <div class="span3 person ca-item ca-item-8">
+                                <div class="person-title">
+                                    <p class="person-name">Сергей</p>
+                                    <p class="person-position">тяжело в учении, легко в бою</p>
+                                </div>
+                                <img src="images/person8.jpg" usemap="person1">
+                            </div>
+
+                            <div class="span3 person ca-item ca-item-9">
+                                <div class="person-title">
+                                    <p class="person-name">Фёдор</p>
+                                    <p class="person-position">знает, как сделать лучше</p>
+                                </div>
+                                <img src="images/person9.jpg" usemap="person1">
+                            </div>
+
+                            <div class="span3 person ca-item ca-item-10">
+                                <div class="person-title">
+                                    <p class="person-name">Евгений</p>
+                                    <p class="person-position">генератор идей</p>
+                                </div>
+                                <img src="images/person10.jpg" usemap="person1">
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -306,22 +252,19 @@
     <!-- Team End -->
 
     <!-- Contacts -->
-    <div id="contacts-anchor" class="contacts-wrap">
-        <div class="contacts-top"></div>
-        <div class="contacts">
-            <div class="container">
-                <div class="row">
-                    <div class="span9 offset3">
-                        <div class="row">
-                            <div class="span5">
-                                <h1 id="contacts-title" class="page-main-title">Контакты</h1>
-                                <p><i class="icon-phone"></i> +7 (919) 685-79-47</p>
-                                <p><i class="icon-envelope"></i> <a href="mailto:racoons-group@gmail.com">contact@racoons-group.com</a></p>
-                                <p><i class="icon-building"></i> ТП "Идея", офис 301</p>
-                            </div>
-                            <div class="span4 yandex-map-palce">
-                                <!-- Yandex Map Place -->
-                            </div>
+    <div class="contacts page">
+        <div class="container">
+            <div class="row">
+                <div class="span9 offset3">
+                    <div class="row">
+                        <div class="span5">
+                            <h1 id="contacts-title" class="page-main-title">Контакты</h1>
+                            <p><i class="icon-phone"></i> +7 (919) 685-79-47</p>
+                            <p><i class="icon-envelope"></i> <a href="mailto:racoons-group@gmail.com">contact@racoons-group.com</a></p>
+                            <p><i class="icon-building"></i> ТП "Идея", офис 301</p>
+                        </div>
+                        <div class="span4 yandex-map-palce">
+                            <!-- Yandex Map Place -->
                         </div>
                     </div>
                 </div>
@@ -329,7 +272,6 @@
         </div>
     </div>
     <!-- Contacts End -->
-
 </div>
 <!-- Pages End -->
 </body>
