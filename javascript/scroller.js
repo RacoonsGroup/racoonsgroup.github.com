@@ -18,16 +18,10 @@ jQuery(function($) {
                 this.$portfolio = $('.portfolio')
                 //Team
                 this.$team = $('.team')
-                //Contacts
-                this.$contacts = $('.contacts')
             },
 
             bindEvents: function() {
                 this.setParams()
-
-                $(window).scroll(function() {
-                    //alert(1)
-                })
 
                 $(window).resize(function() {
                     App.setParams()

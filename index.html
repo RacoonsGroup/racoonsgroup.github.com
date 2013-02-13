@@ -3,7 +3,7 @@
 <head>
     <title></title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=no">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap-custom.min.css">
     <!-- Font Awesome Icons -->
@@ -18,12 +18,13 @@
     <!--Script-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="javascript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery.touchSwipe.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery.mousewheel.js"></script>
     <script type="text/javascript" src="javascript/portfolio.js"></script>
     <script type="text/javascript" src="javascript/scroller.js"></script>
     <script type="text/javascript" src="javascript/desktop-scripts.js"></script>
-    <script type="text/javascript" src="javascript/jquery.stellar.min.js"></script>
-    <script type="text/javascript" src="javascript/jquery.mousewheel.js"></script>
     <script type="text/javascript">
+
         function scrollPage(event, delta, deltaX, deltaY) {
             $('.all-pages-wrap').stop(true, true)
             var now = parseInt($('.all-pages-wrap').css('marginTop'))
@@ -40,7 +41,36 @@
                 $(window).one('mousewheel', scrollPage)
             })
         }
+
+        function touchAdapter(start, end) {
+            alert(start)
+            alert(end)
+            if (parseInt(start) > parseInt(end)) {
+                var deltaY = '-1'
+            } else {
+                var deltaY = '1'
+            }
+            scrollPage(event, 0, 0, deltaY)
+        }
         jQuery(function($) {
+            $(window).on('touchstart', function(event) {
+                event.preventDefault()
+                //startPoint = event.originalEvent.touches[0].pageY
+            })
+            $(window).on('touchend', function(event) {
+                event.preventDefault()
+                //endPoint = event.originalEvent.touches[0].pageY
+                //touchAdapter(startPoint, endPoint)
+            })
+            $(window).swipe({
+                swipeDown: function() {
+                    scrollPage(event, 0, 0, '1')
+                },
+                swipeUp: function() {
+                    scrollPage(event, 0, 0, '-1')
+                }
+            })
+
             $(window).one('mousewheel', scrollPage)
         });
     </script>
@@ -64,19 +94,11 @@
             <a href="#" class="go-back" data-dismiss="modal" aria-hidden="true">Назад</a>
             <a href="#portfolio" class="more-info">Подробнее</a>
             <div class="modal-item-overlay">
-                <h5 class="modal-title">Battlekeys</h5>
-                <p class="modal-labels">
-                    <span class="label label-backend">Back-end</span>
-                    <span class="label label-frontend">Front-end</span>
-                    <span class="label label-design">Design</span>
-                    <span class="label label-mobile">Mobile version</span>
-                </p>
-                <div class="modal-description">
-                    <p>Aenean velit nulla, tincidunt sed bibendum non, facilisis gravida erat. Pellentesque luctus nulla vel urna vulputate eget dictum felis vulputate. Morbi condimentum dolor sit amet nulla tincidunt interdum ullamcorper erat faucibus.</p>
-                    <p>Aenean velit nulla, tincidunt sed bibendum non, facilisis gravida erat. Pellentesque luctus nulla vel urna vulputate eget dictum felis vulputate. Morbi condimentum dolor sit amet nulla tincidunt interdum ullamcorper erat faucibus.</p>
-                </div>
+                <h5 class="modal-title"></h5>
+                <p class="modal-labels"></p>
+                <div class="modal-description"><p></p></div>
                 <p class="buttons">
-                    <a href="#" class="btn btn-warning modal-link">Go to Website</a>
+                    <a href="#" class="btn btn-warning modal-link" target="_blank">Перейти на сайт</a>
                 </p>
             </div>
         </div>

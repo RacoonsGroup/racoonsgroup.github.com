@@ -2,7 +2,7 @@
     font-family: 'PT Sans Narrow', sans-serif;
 }
 body {
-    overflow: hidden;
+    /*overflow: hidden;*/
     background: url("../backgrounds/gplaypattern.png");
 }
 a:hover {
