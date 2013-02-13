@@ -9,7 +9,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <!-- Google Fonts -->
-
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <!--Style-->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/carousel.css">
@@ -17,13 +17,33 @@
 
     <!--Script-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="javascript/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="javascript/jquery.contentcarousel.js"></script>
-    <script type="text/javascript" src="javascript/team.js"></script>
+    <script type="text/javascript" src="javascript/bootstrap.min.js"></script>
     <script type="text/javascript" src="javascript/portfolio.js"></script>
     <script type="text/javascript" src="javascript/scroller.js"></script>
     <script type="text/javascript" src="javascript/desktop-scripts.js"></script>
     <script type="text/javascript" src="javascript/jquery.stellar.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery.mousewheel.js"></script>
+    <script type="text/javascript">
+        function scrollPage(event, delta, deltaX, deltaY) {
+            $('.all-pages-wrap').stop(true, true)
+            var now = parseInt($('.all-pages-wrap').css('marginTop'))
+            if (deltaY < 0) {
+                if (now != -2*$(window).height()) {
+                    now = now - $(window).height() + 'px'
+                }
+            } else {
+                if (now != 0) {
+                    now = now + $(window).height() + 'px'
+                }
+            }
+            $('.all-pages-wrap').animate({marginTop: now}, 'slow', function() {
+                $(window).one('mousewheel', scrollPage)
+            })
+        }
+        jQuery(function($) {
+            $(window).one('mousewheel', scrollPage)
+        });
+    </script>
 
     <!--[if IE 7]>
     <link rel="stylesheet" href="css/font-awesome-ie7.min.css">
@@ -34,6 +54,66 @@
 
 </head>
 <body>
+<!-- modals -->
+<div id="portfolio-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-body">
+        <div class="modal-item-wrap">
+            <div class="modal-image">
+                <img src="images/site.jpg" style="width: 100%;">
+            </div>
+            <a href="#" class="go-back" data-dismiss="modal" aria-hidden="true">Назад</a>
+            <a href="#portfolio" class="more-info">Подробнее</a>
+            <div class="modal-item-overlay">
+                <h5 class="modal-title">Battlekeys</h5>
+                <p class="modal-labels">
+                    <span class="label label-backend">Back-end</span>
+                    <span class="label label-frontend">Front-end</span>
+                    <span class="label label-design">Design</span>
+                    <span class="label label-mobile">Mobile version</span>
+                </p>
+                <div class="modal-description">
+                    <p>Aenean velit nulla, tincidunt sed bibendum non, facilisis gravida erat. Pellentesque luctus nulla vel urna vulputate eget dictum felis vulputate. Morbi condimentum dolor sit amet nulla tincidunt interdum ullamcorper erat faucibus.</p>
+                    <p>Aenean velit nulla, tincidunt sed bibendum non, facilisis gravida erat. Pellentesque luctus nulla vel urna vulputate eget dictum felis vulputate. Morbi condimentum dolor sit amet nulla tincidunt interdum ullamcorper erat faucibus.</p>
+                </div>
+                <p class="buttons">
+                    <a href="#" class="btn btn-warning modal-link">Go to Website</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modals end -->
+<!--Navigation-->
+<div class="top-nav">
+    <div class="container">
+        <div class="row">
+            <div class="span4 offset1 top-nav-logo">
+                <img src="images/racoons_logo.png" alt="Racoons group">
+            </div>
+            <div class="span5 offset2 ">
+                <ul>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Наши работы</a></li>
+                    <li><a href="#">Команда</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bottom-nav">
+    <div class="container">
+        <div class="row">
+            <div class="span3">
+                <i class="icon-envelope"></i> <a href="mailto:racoons-group@gmail.com">contact@racoons-group.com</a>
+            </div>
+            <div class="span4 offset5">
+                <i class="icon-phone"></i> +7 (919) 685-79-47
+                <i class="icon-building"></i> ТП "Идея", офис 301
+            </div>
+        </div>
+    </div>
+</div>
+<!--Navigation End-->
 <!-- Pages -->
 <div class="all-pages-wrap">
     <!-- Main Page -->
@@ -62,37 +142,27 @@
 
     <!-- About Us -->
     <div class="about-us page">
-        <div class="about-us-header">
-            <div class="container">
-                <div class="row">
-                    <div class="span12">
-                        <h1 id="about-us-title" class="page-main-title">О нас</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="container">
             <div class="row">
-                <div class="span12">
-                    <p>Мы - команда молодых, амбициозных и талантливых специалистов. Для нас на первом месте стоит заказчик и его задачи. Наши разработчики не просто пишут код, они становятся частью проекта, работают как единый сплочённый механизм. Наши дизайнеры - творческие и инициативные люди. Наши менеджеры всегда на связи с заказчиком и чутко реагируют на все их просьбы и пожелания. В работе мы используем Agile-методологию. Это позволяет нам всегда быть в курсе желаний заказчика, а часто и предугадывать их.</p>
-                    <p>Вам нужен интернет магазин, для увеличения вашей прибыли? У нас серьёзный опыт работы в этой сфере. По вашему желанию мы можем использовать готовые наработки, или же сделать абсолютно индивидуальный, уникальный продукт. Или может быть Вы молодой стартапер и хотите покорить мир своей идеей? Мы поможем Вам воплотить её в жизнь!</p>
-                    <div class="row technology">
-                        <div class="span4 rails">
-                            <div class="rails-logo"></div>
-                            <h3>Ruby-rails way</h3>
-                            <p>В нашей разработке мы используем передовой язык программирования - Ruby. Фрейморк Rails, основанный на нём, позволяет нам создавать наши продукты быстро и качественно.</p>
-                        </div>
-                        <div class="span4 javascript">
-                            <div class="javascript-logo"></div>
-                            <h3>Dynamic and alive</h3>
-                            <p>Для разработки интерфейсной части мы используем только самые актуальные и хорошо себя зарекомендовавшие инструменты. С их помощью мы можем создавать как простые украшения, так и серьёзные интерфейсно-ориентированные проекты.</p>
-                        </div>
-                        <div class="span4 html-css">
-                            <div class="html-css-logo"></div>
-                            <h3>Modern technology</h3>
-                            <p>Наши верстальщики используют новейшие разработки и тенденции в мире веба. На выходе Вы получаете продукт, качеству исполнения которого позавидуют Ваши конкуренты!</p>
-                        </div>
-                    </div>
+                <div class="span5 graph">
+                    <div class="round js javascript-logo"></div>
+                    <div class="round rails rails-logo"></div>
+                    <div class="round html html-css-logo"></div>
+                </div>
+                <div class="span7">
+                    <span class="plate orangered">Рады что вы зашли</span>
+                    <span class="plate orangered">Мы молодая команда разработчиков из казани</span>
+                    <span class="plate orangered">Вам нужен интернет магазин?</span>
+                    <p>У нас серьёзный опыт работы в этой сфере. По вашему желанию мы можем использовать готовые наработки, или же сделать абсолютно индивидуальный, уникальный продукт. </p>
+                    <span class="plate orangered">Вы молодой стартап?</span>
+                    <p>Хотите покорить мир своей идеей? Мы готовы к сотрудничеству и реализовать вашу идею.</p>
+                    <span class="plate orangered">Почему мы?</span>
+                    <ul class="unstyled">
+                        <li>Разработка для нас не просто работа, а любимое дело и поэтому наши дизайнеры, верстальщики, программисты каждый день создают маленькие шедевры</li>
+                        <li>Несмотря на молодость нашей команды, большинство наших разработчиков имеют многолетний опыт веб разработки</li>
+                        <li>В ходе своей работы мы используем современный и мощный фреймворк Ruby on Rails, что позволяет разрабатывать наши продукты быстро, оставляя их гибкими</li>
+                        <li>Никакого Flash, только HTML5, CSS3, Java Script</li>
+                    </гl>
                 </div>
             </div>
         </div>
@@ -101,40 +171,68 @@
 
     <!-- Portfolio -->
     <div class="portfolio page">
-        <div class="portfolio-header">
-            <div class="container">
-                <div class="row">
-                    <div class="span12">
-                        <h1 id="portfolio-title" class="page-main-title">О нас</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="container">
             <div class="row">
                 <div class="span12">
                     <div class="row">
-                        <div class="span6">
+                        <div class="span12">
+                            <h3>Комерческие проекты</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span4">
                             <div class="portfolio-item-image">
                                 <img src="images/battlekeys.png">
-                                <a href="http://www.battlekeys.com"><!-- data-toggle="modal" -->
+                                <a href="http://www.battlekeys.com">
                                     <div class="portfolio-item-overlay">
                                         <div class="portfolio-item-about">
                                             <h5>Battlekeys</h5>
                                             <p>магазин оптовой продажи игр</p>
+                                            <p class="hide description">Магазин для оптовой продажи ключей к играм. Сложная система статусов заказа на основе state_machine, большое количество фоновых процессов, мультивалютность, разнообразные способы оплаты и многое другое.</p>
+                                            <p class="hide labels">
+                                                <span class="label label-backend">rails</span>
+                                                <span class="label label-frontend">paypal</span>
+                                                <span class="label label-design">resque</span>
+                                                <span class="label label-mobile">coffee</span>
+                                            </p>
                                         </div>
                                     </div>
                                 </a>
                             </div>
                         </div>
-                        <div class="span6">
+                        <div class="span4">
                             <div class="portfolio-item-image">
                                 <img src="images/tixis.png">
-                                <a href="http://www.tixis.ru"><!-- data-toggle="modal" -->
+                                <a href="http://www.tixis.ru">
                                     <div class="portfolio-item-overlay">
                                         <div class="portfolio-item-about">
                                             <h5>Tixis</h5>
                                             <p>онлайн продажа билетов</p>
+                                            <p class="hide description">Афиша мероприятий и продажа билетов на них. Огромный модуль создания планов залов, различные способы выбора билетов (ручной, автоматический, по принципу "лучших мест"). Системы отчётов, парсинг сложных входных схем, формирование готовых билетов в pdf.</p>
+                                            <p class="hide labels">
+                                                <span class="label label-backend">rails</span>
+                                                <span class="label label-frontend">backbone</span>
+                                                <span class="label label-design">redis</span>
+                                                <span class="label label-mobile">coffee</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="span4 visible-desktop">
+                            <div class="portfolio-item-image">
+                                <img src="images/demodekoz.png">
+                                <a href="http://www.demodekoz-lechenie.ru">
+                                    <div class="portfolio-item-overlay">
+                                        <div class="portfolio-item-about">
+                                            <h5>Демодекоз</h5>
+                                            <p>магазин и форум для больных демодекозом</p>
+                                            <p class="hide description">Магазин и форум для страдающих этим кожным заболеванием. Реализован на spree с огромным количеством доработок и изменений. Во время работы над этим проектом нами были созданы гемы spree_commentable и spree_one_page_checkout.</p>
+                                            <p class="hide labels">
+                                                <span class="label label-backend">rails</span>
+                                                <span class="label label-design">spree</span>
+                                            </p>
                                         </div>
                                     </div>
                                 </a>
@@ -144,14 +242,32 @@
                 </div>
             </div>
             <div class="row">
-                <div class="span6 visible-desktop">
+                <div class="span12">
+                    <h3>Open Source проекты</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4">
                     <div class="portfolio-item-image">
-                        <img src="images/demodekoz.png">
-                        <a href="http://www.demodekoz-lechenie.ru"><!-- data-toggle="modal" -->
+                        <img src="images/battlekeys.png">
+                        <a href="http://www.battlekeys.com">
                             <div class="portfolio-item-overlay">
                                 <div class="portfolio-item-about">
-                                    <h5>Демодекоз</h5>
-                                    <p>магазин и форум для больных демодекозом</p>
+                                    <h5>Battlekeys</h5>
+                                    <p>магазин оптовой продажи игр</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="portfolio-item-image">
+                        <img src="images/tixis.png">
+                        <a href="http://www.tixis.ru"><!-- data-toggle="modal" -->
+                            <div class="portfolio-item-overlay">
+                                <div class="portfolio-item-about">
+                                    <h5>Tixis</h5>
+                                    <p>онлайн продажа билетов</p>
                                 </div>
                             </div>
                         </a>
@@ -166,81 +282,99 @@
     <div class="team page">
         <div class="container">
             <div class="row">
-                <div class="span9 offset3">
-                    <h1 id="team-title" class="page-main-title">Наша команда</h1>
-                    <div id="team" class="row ca-container">
-                        <div class="ca-wrapper">
+                <div class="span12">
+                    <div class="row">
 
-                            <div class="span3 person ca-item ca-item-1">
+                            <div class="span4 person">
                                 <div class="person-title">
                                     <p class="person-name">Кирилл</p>
                                     <p class="person-position">лидер Енотов</p>
                                 </div>
-                                <img src="images/person4.jpg" usemap="person4">
+                                <div class="person-image">
+                                    <img src="images/person4.png" usemap="person4">
+                                </div>
                             </div>
 
-                            <div class="span3 person ca-item ca-item-2">
+                            <div class="span4 person">
                                 <div class="person-title">
                                     <p class="person-name">Андрей</p>
                                     <p class="person-position">заботливый менеджер</p>
                                 </div>
-                                <img src="images/person6.jpg" usemap="person3">
+                                <div class="person-image">
+                                    <img src="images/person6.png" usemap="person3">
+                                </div>
                             </div>
 
-                            <div class="span3 person ca-item ca-item-3">
+                            <div class="span4 person">
                                 <div class="person-title">
                                     <p class="person-name">Александр</p>
                                     <p class="person-position">гуру разработки</p>
                                 </div>
-                                <img src="images/person2.jpg" usemap="person2">
+                                <div class="person-image">
+                                    <img src="images/person2.png" usemap="person2">
+                                </div>
                             </div>
-
-                            <div class="span3 person ca-item ca-item-4">
+                    </div>
+                    <div class="row">
+                            <div class="span4 person">
                                 <div class="person-title">
                                     <p class="person-name">Владимир</p>
                                     <p class="person-position">неутомимый искатель знаний</p>
                                 </div>
-                                <img src="images/person3.jpg" usemap="person3">
+                                <div class="person-image">
+                                    <img src="images/person3.png" usemap="person3">
+                                </div>
                             </div>
 
-                            <div class="span3 person ca-item ca-item-5">
+                            <div class="span4 person">
                                 <div class="person-title">
                                     <p class="person-name">Николай</p>
                                     <p class="person-position">пунктуальность и надёжность</p>
                                 </div>
-                                <img src="images/person5.jpg" usemap="person4">
+                                <div class="person-image">
+                                    <img src="images/person5.png" usemap="person4">
+                                </div>
                             </div>
 
-                            <div class="span3 person ca-item ca-item-7">
+                            <div class="span4 person">
                                 <div class="person-title">
                                     <p class="person-name">Марат</p>
                                     <p class="person-position">кладезь позитива</p>
                                 </div>
-                                <img src="images/person7.jpg" usemap="person1">
+                                <div class="person-image">
+                                    <img src="images/person7.png" usemap="person1">
+                                </div>
                             </div>
-
-                            <div class="span3 person ca-item ca-item-8">
+                    </div>
+                    <div class="row">
+                            <div class="span4 person">
                                 <div class="person-title">
                                     <p class="person-name">Сергей</p>
                                     <p class="person-position">тяжело в учении, легко в бою</p>
                                 </div>
-                                <img src="images/person8.jpg" usemap="person1">
+                                <div class="person-image">
+                                    <img src="images/person8.png" usemap="person1">
+                                </div>
                             </div>
 
-                            <div class="span3 person ca-item ca-item-9">
+                            <div class="span4 person">
                                 <div class="person-title">
                                     <p class="person-name">Фёдор</p>
                                     <p class="person-position">знает, как сделать лучше</p>
                                 </div>
-                                <img src="images/person9.jpg" usemap="person1">
+                                <div class="person-image">
+                                    <img src="images/person9.png" usemap="person1">
+                                </div>
                             </div>
 
-                            <div class="span3 person ca-item ca-item-10">
+                            <div class="span4 person">
                                 <div class="person-title">
                                     <p class="person-name">Евгений</p>
                                     <p class="person-position">генератор идей</p>
                                 </div>
-                                <img src="images/person10.jpg" usemap="person1">
+                                <div class="person-image">
+                                    <img src="images/person10.png" usemap="person1">
+                                </div>
                             </div>
 
                         </div>
@@ -250,28 +384,6 @@
         </div>
     </div>
     <!-- Team End -->
-
-    <!-- Contacts -->
-    <div class="contacts page">
-        <div class="container">
-            <div class="row">
-                <div class="span9 offset3">
-                    <div class="row">
-                        <div class="span5">
-                            <h1 id="contacts-title" class="page-main-title">Контакты</h1>
-                            <p><i class="icon-phone"></i> +7 (919) 685-79-47</p>
-                            <p><i class="icon-envelope"></i> <a href="mailto:racoons-group@gmail.com">contact@racoons-group.com</a></p>
-                            <p><i class="icon-building"></i> ТП "Идея", офис 301</p>
-                        </div>
-                        <div class="span4 yandex-map-palce">
-                            <!-- Yandex Map Place -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Contacts End -->
 </div>
 <!-- Pages End -->
 </body>
