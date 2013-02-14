@@ -6,74 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=no">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap-custom.min.css">
+    <!--Style-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_tablet.css">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-    <!--Style-->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/carousel.css">
-
+    <link media="screen and (min-width: 767px)" href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
     <!--Script-->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="javascript/bootstrap.min.js"></script>
     <script type="text/javascript" src="javascript/jquery.touchSwipe.min.js"></script>
     <script type="text/javascript" src="javascript/jquery.mousewheel.js"></script>
     <script type="text/javascript" src="javascript/portfolio.js"></script>
     <script type="text/javascript" src="javascript/scroller.js"></script>
     <script type="text/javascript" src="javascript/desktop-scripts.js"></script>
-    <script type="text/javascript">
 
-        function scrollPage(event, delta, deltaX, deltaY) {
-            $('.all-pages-wrap').stop(true, true)
-            var now = parseInt($('.all-pages-wrap').css('marginTop'))
-            if (deltaY < 0) {
-                if (now != -2*$(window).height()) {
-                    now = now - $(window).height() + 'px'
-                }
-            } else {
-                if (now != 0) {
-                    now = now + $(window).height() + 'px'
-                }
-            }
-            $('.all-pages-wrap').animate({marginTop: now}, 'slow', function() {
-                $(window).one('mousewheel', scrollPage)
-            })
-        }
-
-        function touchAdapter(start, end) {
-            alert(start)
-            alert(end)
-            if (parseInt(start) > parseInt(end)) {
-                var deltaY = '-1'
-            } else {
-                var deltaY = '1'
-            }
-            scrollPage(event, 0, 0, deltaY)
-        }
-        jQuery(function($) {
-            $(window).on('touchstart', function(event) {
-                event.preventDefault()
-                //startPoint = event.originalEvent.touches[0].pageY
-            })
-            $(window).on('touchend', function(event) {
-                event.preventDefault()
-                //endPoint = event.originalEvent.touches[0].pageY
-                //touchAdapter(startPoint, endPoint)
-            })
-            $(window).swipe({
-                swipeDown: function() {
-                    scrollPage(event, 0, 0, '1')
-                },
-                swipeUp: function() {
-                    scrollPage(event, 0, 0, '-1')
-                }
-            })
-
-            $(window).one('mousewheel', scrollPage)
-        });
-    </script>
 
     <!--[if IE 7]>
     <link rel="stylesheet" href="css/font-awesome-ie7.min.css">
@@ -89,7 +38,7 @@
     <div class="modal-body">
         <div class="modal-item-wrap">
             <div class="modal-image">
-                <img src="images/site.jpg" style="width: 100%;">
+                <img src="#" style="width: 100%;">
             </div>
             <a href="#" class="go-back" data-dismiss="modal" aria-hidden="true">Назад</a>
             <a href="#portfolio" class="more-info">Подробнее</a>
@@ -106,72 +55,83 @@
 </div>
 <!-- modals end -->
 <!--Navigation-->
-<div class="top-nav">
+<div class="top-nav visible-desktop">
     <div class="container">
         <div class="row">
             <div class="span4 offset1 top-nav-logo">
                 <img src="images/racoons_logo.png" alt="Racoons group">
             </div>
             <div class="span5 offset2 ">
-                <ul>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Наши работы</a></li>
-                    <li><a href="#">Команда</a></li>
+                <ul id="navigation">
+                    <li><a class="active" data-scroll-id="0" href="#">О нас</a></li>
+                    <li><a data-scroll-id="1" href="#">Наши работы</a></li>
+                    <li><a data-scroll-id="2" href="#">Команда</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
-<div class="bottom-nav">
+<div class="bottom-nav visible-desktop">
     <div class="container">
         <div class="row">
             <div class="span3">
-                <i class="icon-envelope"></i> <a href="mailto:racoons-group@gmail.com">contact@racoons-group.com</a>
+                <a href="mailto:racoons-group@gmail.com"><span class="contact-wrap"><i class="icon-envelope"></i> contact@racoons-group.com</span></a>
             </div>
-            <div class="span4 offset5">
-                <i class="icon-phone"></i> +7 (919) 685-79-47
-                <i class="icon-building"></i> ТП "Идея", офис 301
+            <div class="span2 offset5">
+                <a href="tel:+79196857947"><span class="contact-wrap"><i class="icon-phone"></i></span> +7 (919) 685-79-47</a>
+            </div>
+            <div class="span2">
+                <a href="http://maps.yandex.ru/-/CVR9BK~o" target="_blank"><span class="contact-wrap"><i class="icon-building"></i></span> ТП "Идея", офис 301</a>
             </div>
         </div>
     </div>
 </div>
 <!--Navigation End-->
-<!-- Pages -->
-<div class="all-pages-wrap">
-    <!-- Main Page -->
-    <div class="main-page page">
-        <div class="container">
-            <div class="row">
-                <div class="span6 offset5">
-                    <div class="logo">
-                        <div class="hello-world-wrap">
-                            <div class="hello-world">
-                                <span>
-                                    Hello world!
-                                </span>
-                            </div>
-                        </div>
-                        <img src="images/racoons_logo.png" alt="Racoons Group">
-                        <div class="slogan">
-                            Самое интересное ниже!
-                        </div>
+<!--Mobile nav-->
+<div class="mobile-nav-contacts hidden-desktop">
+    <div class="mobile-nav-contacts-label">
+        <span>Контакты</span>
+    </div>
+    <div class="mobile-nav-contacts-inner">
+        <p><a href="mailto:racoons-group@gmail.com"><span class="contact-wrap"><i class="icon-envelope"></i></span> contact@racoons-group.com</a></p>
+        <p><a href="tel:+79196857947"><span class="contact-wrap"><i class="icon-phone"></i></span> +7 (919) 685-79-47</a></p>
+        <p><a href="http://maps.yandex.ru/-/CVR9BK~o" target="_blank"><span class="contact-wrap"><i class="icon-building"></i></span> ТП "Идея", офис 301</a></p>
+    </div>
+</div>
+<!--Mobile nav end-->
+<!-- Main Page -->
+<div class="main-page">
+    <div class="container">
+        <div class="row">
+            <div class="span4 offset4">
+                <div class="logo">
+                    <img src="images/racoons_logo.png" alt="Racoons Group">
+                    <div class="slogan">
+                        последние приготовления...
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Main Page End -->
-
+</div>
+<!-- Main Page End -->
+<!-- Pages -->
+<div class="all-pages-wrap">
     <!-- About Us -->
     <div class="about-us page">
         <div class="container">
             <div class="row">
-                <div class="span5 graph">
+                <div class="span5 graph visible-desktop">
                     <div class="round js javascript-logo"></div>
                     <div class="round rails rails-logo"></div>
                     <div class="round html html-css-logo"></div>
                 </div>
                 <div class="span7">
+                    <div class="row">
+                        <div class="span7 hidden-desktop mobile-logo">
+                            <img src="images/racoons_logo.png" alt="Racoons Group">
+                        </div>
+                    </div>
                     <span class="plate orangered">Рады что вы зашли</span>
                     <span class="plate orangered">Мы молодая команда разработчиков из казани</span>
                     <span class="plate orangered">Вам нужен интернет магазин?</span>
@@ -196,9 +156,14 @@
         <div class="container">
             <div class="row">
                 <div class="span12">
-                    <div class="row">
+                    <div class="row visible-desktop">
                         <div class="span12">
-                            <h3>Комерческие проекты</h3>
+                            <h3 class="plate orangered">Коммерческие проекты</h3>
+                        </div>
+                    </div>
+                    <div class="row hidden-desktop">
+                        <div class="span12">
+                            <h3 class="plate orangered">Последнии проекты</h3>
                         </div>
                     </div>
                     <div class="row">
@@ -242,7 +207,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="span4 visible-desktop">
+                        <div class="span4">
                             <div class="portfolio-item-image">
                                 <img src="images/demodekoz.png">
                                 <a href="http://www.demodekoz-lechenie.ru">
@@ -263,20 +228,25 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row visible-desktop">
                 <div class="span12">
-                    <h3>Open Source проекты</h3>
+                    <h3 class="plate orangered">Open Source проекты</h3>
                 </div>
             </div>
-            <div class="row">
+            <div class="row visible-desktop">
                 <div class="span4">
                     <div class="portfolio-item-image">
-                        <img src="images/battlekeys.png">
-                        <a href="http://www.battlekeys.com">
+                        <img src="images/spree_commentable.png">
+                        <a href="https://github.com/RacoonsGroup/spree_commentable">
                             <div class="portfolio-item-overlay">
                                 <div class="portfolio-item-about">
-                                    <h5>Battlekeys</h5>
-                                    <p>магазин оптовой продажи игр</p>
+                                    <h5>Spree Commentable</h5>
+                                    <p>коментарии к товарам</p>
+                                    <p class="hide description">Гем для реализации премодерируемых комментариев внутри магазина. Стандартное решение spree - сервис disquss имеет неудобства для сео-оптимизации. С этим гемом все комментарии хранятся прямо на сайте, админ может их видеть, одобрять или удалять.</p>
+                                    <p class="hide labels">
+                                        <span class="label label-backend">rails</span>
+                                        <span class="label label-frontend">spree</span>
+                                    </p>
                                 </div>
                             </div>
                         </a>
@@ -284,12 +254,17 @@
                 </div>
                 <div class="span4">
                     <div class="portfolio-item-image">
-                        <img src="images/tixis.png">
-                        <a href="http://www.tixis.ru"><!-- data-toggle="modal" -->
+                        <img src="images/spree_one_page_chekout.png">
+                        <a href="https://github.com/RacoonsGroup/spree_one_page_checkout">
                             <div class="portfolio-item-overlay">
                                 <div class="portfolio-item-about">
-                                    <h5>Tixis</h5>
-                                    <p>онлайн продажа билетов</p>
+                                    <h5>Spree One Page Chekout</h5>
+                                    <p>оформление заказа на одной странице</p>
+                                    <p class="hide description">Гем для одностраничного процесса покупки в магазине. В настоящее время многие аналитики говорят о том, что длительный процесс шагов покупки уходит в прошлое и решения одностраничной покупки становятся всё актуальнее. Мы решили быть на гребне волны и реализовали свой гем для spree, реализующий этот функционал.</p>
+                                    <p class="hide labels">
+                                        <span class="label label-backend">rails</span>
+                                        <span class="label label-frontend">spree</span>
+                                    </p>
                                 </div>
                             </div>
                         </a>
@@ -301,7 +276,7 @@
     <!-- Portfolio End -->
 
     <!-- Team -->
-    <div class="team page">
+    <div class="team page visible-desktop">
         <div class="container">
             <div class="row">
                 <div class="span12">
@@ -312,9 +287,7 @@
                                     <p class="person-name">Кирилл</p>
                                     <p class="person-position">лидер Енотов</p>
                                 </div>
-                                <div class="person-image">
-                                    <img src="images/person4.png" usemap="person4">
-                                </div>
+                                <div class="person-image person-4"></div>
                             </div>
 
                             <div class="span4 person">
@@ -322,9 +295,7 @@
                                     <p class="person-name">Андрей</p>
                                     <p class="person-position">заботливый менеджер</p>
                                 </div>
-                                <div class="person-image">
-                                    <img src="images/person6.png" usemap="person3">
-                                </div>
+                                <div class="person-image person-6"></div>
                             </div>
 
                             <div class="span4 person">
@@ -332,9 +303,7 @@
                                     <p class="person-name">Александр</p>
                                     <p class="person-position">гуру разработки</p>
                                 </div>
-                                <div class="person-image">
-                                    <img src="images/person2.png" usemap="person2">
-                                </div>
+                                <div class="person-image person-2"></div>
                             </div>
                     </div>
                     <div class="row">
@@ -343,9 +312,7 @@
                                     <p class="person-name">Владимир</p>
                                     <p class="person-position">неутомимый искатель знаний</p>
                                 </div>
-                                <div class="person-image">
-                                    <img src="images/person3.png" usemap="person3">
-                                </div>
+                                <div class="person-image person-3"></div>
                             </div>
 
                             <div class="span4 person">
@@ -353,9 +320,7 @@
                                     <p class="person-name">Николай</p>
                                     <p class="person-position">пунктуальность и надёжность</p>
                                 </div>
-                                <div class="person-image">
-                                    <img src="images/person5.png" usemap="person4">
-                                </div>
+                                <div class="person-image person-5"></div>
                             </div>
 
                             <div class="span4 person">
@@ -363,9 +328,7 @@
                                     <p class="person-name">Марат</p>
                                     <p class="person-position">кладезь позитива</p>
                                 </div>
-                                <div class="person-image">
-                                    <img src="images/person7.png" usemap="person1">
-                                </div>
+                                <div class="person-image person-7"></div>
                             </div>
                     </div>
                     <div class="row">
@@ -374,9 +337,7 @@
                                     <p class="person-name">Сергей</p>
                                     <p class="person-position">тяжело в учении, легко в бою</p>
                                 </div>
-                                <div class="person-image">
-                                    <img src="images/person8.png" usemap="person1">
-                                </div>
+                                <div class="person-image person-8"></div>
                             </div>
 
                             <div class="span4 person">
@@ -384,9 +345,7 @@
                                     <p class="person-name">Фёдор</p>
                                     <p class="person-position">знает, как сделать лучше</p>
                                 </div>
-                                <div class="person-image">
-                                    <img src="images/person9.png" usemap="person1">
-                                </div>
+                                <div class="person-image person-9"></div>
                             </div>
 
                             <div class="span4 person">
@@ -394,9 +353,7 @@
                                     <p class="person-name">Евгений</p>
                                     <p class="person-position">генератор идей</p>
                                 </div>
-                                <div class="person-image">
-                                    <img src="images/person10.png" usemap="person1">
-                                </div>
+                                <div class="person-image person-10"></div>
                             </div>
 
                         </div>

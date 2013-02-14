@@ -13,20 +13,22 @@ jQuery(function($) {
 	});
 
     $('.portfolio-item-overlay').click(function(event) {
-        event.preventDefault()
-        data = {
-            image: $(this).parents('.portfolio-item-image').find('img').attr('src'),
-            title: $(this).find('h5').text(),
-            labels: $(this).find('.labels').html(),
-            description:  $(this).find('.description').html(),
-            link: $(this).parent().attr('href')
+        if (!App.mobileDevice() || App.iPad() ) {
+            event.preventDefault()
+            data = {
+                image: $(this).parents('.portfolio-item-image').find('img').attr('src'),
+                title: $(this).find('h5').text(),
+                labels: $(this).find('.labels').html(),
+                description:  $(this).find('.description').html(),
+                link: $(this).parent().attr('href')
+            }
+            $('.modal-image img').attr('src', data.image)
+            $('.modal-title').text(data.title)
+            $('.modal-labels').html(data.labels)
+            $('.modal-description p').html(data.description)
+            $('.modal-link').attr('href', data.link)
+            $('#portfolio-modal').modal('show')
         }
-        $('.modal-image img').attr('src', data.image)
-        $('.modal-title').text(data.title)
-        $('.modal-labels').html(data.labels)
-        $('.modal-description p').html(data.description)
-        $('.modal-link').attr('href', data.link)
-        $('#portfolio-modal').modal('show')
     })
 
 	$('.more-info').on('click', function() {

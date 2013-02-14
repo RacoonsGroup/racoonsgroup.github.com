@@ -1,8 +1,38 @@
+@media screen and (min-width:767px){
+    .person-2 {
+        background-image: url('../images/person2.png');
+    }
+    .person-3 {
+        background-image: url('../images/person3.png');
+    }
+    .person-4 {
+        background-image: url('../images/person4.png');
+    }
+    .person-5 {
+        background-image: url('../images/person5.png');
+    }
+    .person-6 {
+        background-image: url('../images/person6.png');
+    }
+    .person-7 {
+        background-image: url('../images/person7.png');
+    }
+    .person-8 {
+        background-image: url('../images/person8.png');
+    }
+    .person-9 {
+        background-image: url('../images/person9.png');
+    }
+    .person-10 {
+        background-image: url('../images/person10.png');
+    }
+}
+
 * {
     font-family: 'PT Sans Narrow', sans-serif;
 }
 body {
-    /*overflow: hidden;*/
+    overflow: hidden;
     background: url("../backgrounds/gplaypattern.png");
 }
 a:hover {
@@ -10,7 +40,7 @@ a:hover {
 }
 h1, h2, h3, h4, h5, h6 {
     font-weight: lighter;
-    margin: 0 0 20px;
+    margin: 0;
     padding: 0;
 }
 p {
@@ -84,10 +114,12 @@ h3 {
     position: fixed;
     width: 100%;
     z-index: 100;
+    box-shadow: 0 0 15px 2px #fff;
+    background: #fff;
 }
 .top-nav {
     top: 0;
-    height: 70px;
+    height: 60px;
     line-height: 70px;
 }
 .bottom-nav {
@@ -106,15 +138,18 @@ h3 {
 .top-nav a {
     color: #000;
     font-size: 18pt;
-    padding: 10px;
+    padding: 5px 10px;
     margin: 0 10px;
 }
-.bottom-nav {
-
+.top-nav a.active {
+    border-bottom: 2px solid #000
 }
-.bottom-nav i {
+.bottom-nav a, .bottom-nav a:hover, .bottom-nav a:active {
+    color: #000;
+}
+.contact-wrap {
     background-color: #000;
-    padding: 8px 10px;
+    padding: 6px 10px;
     border-radius: 15px;
     color: #fff;
     height: 30px;
@@ -122,19 +157,23 @@ h3 {
 }
 
 .page .container {
-    height: 600px;
+    height: 550px;
 }
 
 /*Main Page*/
 
 .main-page {
-    background: url("../backgrounds/about-us.png");
-    box-shadow: inset 0 0 180px 0px #000;
-    display: none;
+    background: url("../backgrounds/gplaypattern.png");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 10000;
 }
 .logo {
     text-align: center;
-    margin-top: 370px;
+    position: absolute;
+    top:40%;
+    left: 34%;
 }
 .hello-world-wrap {
     background: url("../images/spk.png") 173px 30px no-repeat;
@@ -156,17 +195,18 @@ h3 {
     text-align: right;
     padding: 5px 0px;
     font-size: 20pt;
+    font-family: sans-serif;
 }
 
 /*About Us*/
 
 .about-us p, .about-us li {
-    font-size: 14pt;
+    font-size: 12pt;
     line-height: 25px;
     margin: 10px 0;
 }
 .plate {
-    font-size: 20pt !important;
+    font-size: 18pt !important;
     text-transform: uppercase;
     color: #fff;
     display: inline-block;
@@ -179,14 +219,14 @@ h3 {
 .graph {
     position: relative;
     text-align: center;
-    height: 600px;
+    height: 550px;
 }
 .round {
     background-size: 100px !important;
     background-position: center;
     background-repeat: no-repeat;
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 300px;
     display: inline-block;
     position: absolute;
@@ -210,14 +250,17 @@ h3 {
     background-image: url("../images/rails_icon.png");
     background-color: rgba(100,140,237,0.6);
     z-index: 2;
-    width: 270px;
-    height: 270px;
+    width: 250px;
+    height: 250px;
     left: 20%;
     top: 22%;
 }
 
 /*Portfolio*/
 
+.portfolio h3.plate {
+    margin: 20px 0;
+}
 .portfolio-item {
     padding: 10px;
     text-align: center;
@@ -226,7 +269,9 @@ h3 {
     display: inline-block;
     position: relative;
     margin: 5px;
-    border: 2px solid #fff;
+    border: 1px solid #000;
+    height: 180px;
+    overflow: hidden;
 }
 .portfolio-item-image  img {
     width: 100%;
@@ -236,7 +281,7 @@ h3 {
 }
 .portfolio-item-overlay {
     display: inline-block;
-    box-shadow: inset 0 0 160px 40px #000;
+    box-shadow: inset 0 0 200px 20px #000;
     position: absolute;
     top: 0;
     left: 0;
@@ -279,6 +324,7 @@ h3 {
 .person-image {
     margin: 0 30px;
     border-bottom: 1px dashed #000;
-    height: 145px;
+    height: 115px;
     overflow: hidden;
+    background-position: top center;
 }

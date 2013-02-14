@@ -1,17 +1,23 @@
 jQuery(function($) {
     $(window).load(function() {
 
+        $('.mobile-nav-contacts-label').on('click', function() {
+            $('.mobile-nav-contacts-inner').slideToggle()
+        })
+
         App = {
             init: function() {
                 this.bindElements()
                 this.bindEvents()
-                this.setParams()
             },
 
             bindElements: function() {
+                //Pages wraper
+                this.$pageWraper = $('.all-pages-wrap')
+                //Navigation
+                this.$navigation = $('#navigation a')
                 //Main Page
                 this.$mainPage = $('.main-page')
-                this.$logo = $('.logo')
                 //About Us
                 this.$aboutUs = $('.about-us')
                 //Portfolio
@@ -21,16 +27,34 @@ jQuery(function($) {
             },
 
             bindEvents: function() {
-                this.setParams()
+                if (!App.mobileDevice() || App.iPad()) {
+                    this.setParams()
+                    this.hidePreload()
 
-                $(window).resize(function() {
-                    App.setParams()
-                });
+                    $(window).resize(function() {
+                        App.setParams()
+                    });
+
+                    $(window).on('touchstart', false)
+
+                    $(window).swipe({
+                        swipeDown: function() {
+                            scrollPage(event, 0, 0, '1')
+                        },
+                        swipeUp: function() {
+                            scrollPage(event, 0, 0, '-1')
+                        }
+                    })
+
+                    $(window).one('mousewheel', App.scrollPage)
+                    this.$navigation.click(function(event) {
+                        App.scrollToMe($(this).attr('data-scroll-id'))
+                    })
+                }
             },
 
             setParams: function() {
-                this.$logo.css('margin-top', ( $(window).height() - this.$logo.height() - 50 ) / 2 );
-//                this.setOurHeight(this.$mainPage, this.$aboutUs, this.$portfolio, this.$team, this.$contacts)
+                //this.$logo.css('margin-top', ( $(window).height() - this.$logo.height() - 50 ) / 2 )
                 this.setOurHeight(this.$aboutUs, this.$portfolio, this.$team)
                 this.setOurMargin(this.$aboutUs, this.$portfolio, this.$team)
             },
@@ -41,19 +65,62 @@ jQuery(function($) {
                 });
             },
 
-            setOurWidth: function() {
-                $.each(arguments, function() {
-                    $(this).css('width', $(window).width());
-                });
-            },
-
             setOurMargin: function() {
-                var padding = ($(window).height() - 600)/2
+                var padding = ($(window).height() - 550)/2
                 $.each(arguments, function() {
                     $(this).find('.container').css({
                         paddingTop: padding,
                     })
                 })
+            },
+
+            scrollPage: function (event, delta, deltaX, deltaY) {
+                var now = parseInt(App.$pageWraper.css('marginTop'))
+
+                App.$pageWraper.stop(true, true)
+
+                if (deltaY < 0) {
+                    if (now != -2*$(window).height()) {
+                        var scrollTo = now - $(window).height() + 'px'
+                    }
+                } else {
+                    if (now != 0) {
+                        var scrollTo = now + $(window).height() + 'px'
+                    }
+                }
+                App.scrollAnimation(scrollTo)
+            },
+
+            scrollToMe: function(index) {
+                var scrollTo = '-' + $(window).height()*index
+                App.scrollAnimation(scrollTo)
+            },
+
+            scrollAnimation: function(destination) {
+                var index = -1 * parseInt(destination) / $(window).height()
+
+                App.$pageWraper.animate({marginTop: destination}, 'slow', function() {
+                    $(window).one('mousewheel', App.scrollPage)
+                })
+
+                App.activeMenuItem(index)
+            },
+
+            activeMenuItem: function(index) {
+                App.$navigation.removeClass('active')
+                $(App.$navigation[index]).addClass('active')
+            },
+
+            hidePreload: function() {
+                this.$mainPage.slideUp()
+            },
+
+            mobileDevice: function() {
+                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|Mobile/i.test(navigator.userAgent)
+            },
+
+            iPad: function() {
+                return /iPad/i.test(navigator.userAgent)
             }
 
         }
