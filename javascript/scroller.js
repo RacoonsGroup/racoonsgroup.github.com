@@ -27,34 +27,42 @@ jQuery(function($) {
             },
 
             bindEvents: function() {
+                $(window).on('orientationchange', function() {
+                    $('body').hide()
+                    location.reload()
+                })
+
                 if (!App.mobileDevice() || App.iPad()) {
-                    this.setParams()
-                    this.hidePreload()
 
-                    $(window).resize(function() {
-                        App.setParams()
-                    });
+                    if (App.landscapeOrientation()) {
+                        this.setParams()
+                        this.hidePreload()
 
-                    $(window).on('touchstart', false)
+                        $(window).resize(function() {
+                            App.setParams()
+                        });
 
-                    $(window).swipe({
-                        swipeDown: function() {
-                            scrollPage(event, 0, 0, '1')
-                        },
-                        swipeUp: function() {
-                            scrollPage(event, 0, 0, '-1')
-                        }
-                    })
+                        $(window).swipe({
+                            swipeDown: function() {
+                                $(window).swipe('disable')
+                                App.scrollPage(event, 0, 0, '1')
+                            },
+                            swipeUp: function() {
+                                $(window).swipe('disable')
+                                App.scrollPage(event, 0, 0, '-1')
+                            }
+                        })
 
-                    $(window).one('mousewheel', App.scrollPage)
-                    this.$navigation.click(function(event) {
-                        App.scrollToMe($(this).attr('data-scroll-id'))
-                    })
+                        $(window).one('mousewheel', App.scrollPage)
+
+                        this.$navigation.on('click, touchstart',function(event) {
+                            App.scrollToMe($(this).attr('data-scroll-id'))
+                        })
+                    }
                 }
             },
 
             setParams: function() {
-                //this.$logo.css('margin-top', ( $(window).height() - this.$logo.height() - 50 ) / 2 )
                 this.setOurHeight(this.$aboutUs, this.$portfolio, this.$team)
                 this.setOurMargin(this.$aboutUs, this.$portfolio, this.$team)
             },
@@ -101,14 +109,17 @@ jQuery(function($) {
 
                 App.$pageWraper.animate({marginTop: destination}, 'slow', function() {
                     $(window).one('mousewheel', App.scrollPage)
+                    $(window).swipe('enable')
                 })
 
                 App.activeMenuItem(index)
             },
 
             activeMenuItem: function(index) {
-                App.$navigation.removeClass('active')
-                $(App.$navigation[index]).addClass('active')
+                if (!isNaN(index)) {
+                    App.$navigation.removeClass('active')
+                    $(App.$navigation[index]).addClass('active')
+                }
             },
 
             hidePreload: function() {
@@ -121,6 +132,14 @@ jQuery(function($) {
 
             iPad: function() {
                 return /iPad/i.test(navigator.userAgent)
+            },
+
+            landscapeOrientation: function() {
+                if ($(window).width() > $(window).height()) {
+                    return true
+                } else {
+                    return false
+                }
             }
 
         }
