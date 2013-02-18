@@ -60,7 +60,7 @@ h3 {
 /*Modal*/
 .modal-item-wrap {
     position: relative;
-    max-height: 600px;
+    max-height: 550px;
     overflow: hidden;
 }
 .modal-item-wrap .go-back, .modal-item-wrap .more-info {
@@ -91,7 +91,7 @@ h3 {
     font-size: 24pt;
 }
 .modal-item-overlay p {
-    font-size: 10pt;
+    font-size: 12pt;
     margin-bottom: 10px;
 }
 .modal-item-overlay p.buttons {
