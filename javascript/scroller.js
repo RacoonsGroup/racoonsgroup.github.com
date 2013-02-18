@@ -32,54 +32,81 @@ jQuery(function($) {
                     location.reload()
                 })
 
-                if (!App.mobileDevice() || App.iPad()) {
+                $(window).resize(function() {
+                    App.setParams()
+                    App.bindEvents()
+                })
 
-                    if (App.landscapeOrientation()) {
-                        this.setParams()
-                        this.hidePreload()
+                this.$navigation.on('click touchstart',function(event) {
+                    App.scrollToMe($(this).attr('data-scroll-id'))
+                })
 
-                        $(window).resize(function() {
-                            App.setParams()
-                        });
+                if (App.iPad() && App.landscapeOrientation()) {
+                    this.setParams()
+                    this.hidePreload()
 
-                        $(window).swipe({
-                            swipeDown: function() {
-                                $(window).swipe('disable')
-                                App.scrollPage(event, 0, 0, '1')
-                            },
-                            swipeUp: function() {
-                                $(window).swipe('disable')
-                                App.scrollPage(event, 0, 0, '-1')
-                            }
-                        })
+                    $(window).swipe({
+                        swipeDown: function() {
+                            $(window).swipe('disable')
+                            App.scrollPage(event, 0, 0, '1')
+                        },
+                        swipeUp: function() {
+                            $(window).swipe('disable')
+                            App.scrollPage(event, 0, 0, '-1')
+                        }
+                    })
+                }
 
-                        $(window).one('mousewheel', App.scrollPage)
-
-                        this.$navigation.on('click touchstart',function(event) {
-                            App.scrollToMe($(this).attr('data-scroll-id'))
-                        })
-                    }
+                if (!App.mobileDevice() && ($(window).width() > 959)) {
+                    this.hidePreload()
+                    this.setParams()
+                    $(window).one('mousewheel', App.scrollPage)
+                } else {
+                    $(window).unbind('mousewheel')
                 }
             },
 
             setParams: function() {
-                this.setOurHeight(this.$aboutUs, this.$portfolio, this.$team)
-                this.setOurMargin(this.$aboutUs, this.$portfolio, this.$team)
+                //this.$pageWraper.css('marginTop', 0)
+                if ($(window).width() > 959) {
+                    App.setOurHeightAndPadding(this.$aboutUs, this.$portfolio, this.$team)
+                    App.setZoom()
+                } else {
+                    App.unsetOurHeightAndPadding(this.$aboutUs, this.$portfolio, this.$team)
+                    App.resetZoom()
+                }
             },
 
-            setOurHeight: function() {
+            setOurHeightAndPadding: function() {
+                var padding = ($(window).height() - 550)/2
+
                 $.each(arguments, function() {
                     $(this).css('height', $(window).height());
+                    $(this).find('.container').css({
+                        paddingTop: padding
+                    })
                 });
             },
 
-            setOurMargin: function() {
-                var padding = ($(window).height() - 550)/2
+            unsetOurHeightAndPadding: function() {
                 $.each(arguments, function() {
+                    $(this).css('height', 'auto')
                     $(this).find('.container').css({
-                        paddingTop: padding,
+                        paddingTop: 0
                     })
                 })
+
+            },
+
+            setZoom: function() {
+                if (!App.mobileDevice()) {
+                    var scaleValue = $(window).height()/750
+                    $('body').css('zoom', scaleValue)
+                }
+            },
+
+            resetZoom: function() {
+                $('body').css('zoom', 1)
             },
 
             scrollPage: function (event, delta, deltaX, deltaY) {
@@ -100,7 +127,11 @@ jQuery(function($) {
             },
 
             scrollToMe: function(index) {
-                var scrollTo = '-' + $(window).height()*index
+                var scrollTo = ('-' + $(window).height())*index
+
+                $(window).unbind('mousewheel')
+
+                App.$pageWraper.stop(true, true)
                 App.scrollAnimation(scrollTo)
             },
 
