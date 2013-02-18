@@ -33,8 +33,8 @@ jQuery(function($) {
                 })
 
                 $(window).resize(function() {
-                    App.setParams()
-                    App.bindEvents()
+                    $(window).off('mousewheel click touchstrat')
+                    App.init()
                 })
 
                 this.$navigation.on('click touchstart',function(event) {
@@ -67,23 +67,26 @@ jQuery(function($) {
             },
 
             setParams: function() {
-                //this.$pageWraper.css('marginTop', 0)
+                this.$pageWraper.css('marginTop', 0)
+                App.activeMenuItem(0)
+
                 if ($(window).width() > 959) {
                     App.setOurHeightAndPadding(this.$aboutUs, this.$portfolio, this.$team)
-                    App.setZoom()
                 } else {
-                    App.unsetOurHeightAndPadding(this.$aboutUs, this.$portfolio, this.$team)
                     App.resetZoom()
+                    App.unsetOurHeightAndPadding(this.$aboutUs, this.$portfolio, this.$team)
                 }
             },
 
             setOurHeightAndPadding: function() {
-                var padding = ($(window).height() - 550)/2
+                var scaleValue = $(window).height()/750
+                var padding = ($(window).height() - 550*scaleValue)/2
 
                 $.each(arguments, function() {
                     $(this).css('height', $(window).height());
                     $(this).find('.container').css({
-                        paddingTop: padding
+                        paddingTop: padding,
+                        zoom: scaleValue
                     })
                 });
             },
@@ -101,7 +104,7 @@ jQuery(function($) {
             setZoom: function() {
                 if (!App.mobileDevice()) {
                     var scaleValue = $(window).height()/750
-                    $('body').css('zoom', scaleValue)
+                    $('.page .container').css('zoom', scaleValue)
                 }
             },
 
@@ -131,7 +134,7 @@ jQuery(function($) {
 
                 $(window).unbind('mousewheel')
 
-                App.$pageWraper.stop(true, true)
+                App.$pageWraper.stop(true)
                 App.scrollAnimation(scrollTo)
             },
 
