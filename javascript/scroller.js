@@ -55,7 +55,7 @@ jQuery(function($) {
 
                         $(window).one('mousewheel', App.scrollPage)
 
-                        this.$navigation.on('click, touchstart',function(event) {
+                        this.$navigation.on('click touchstart',function(event) {
                             App.scrollToMe($(this).attr('data-scroll-id'))
                         })
                     }
