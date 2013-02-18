@@ -31,19 +31,18 @@ jQuery(function($) {
         }
     })
 
-	$('.more-info').on('click', function() {
+	$('.more-info').toggle(function() {
 		$overlay = $(this).parent().find('.modal-item-overlay')
 		$overlay.stop()
 		$overlay.animate({
 			opacity: 1
 		}, 'slow');
-	});
+	}, function() {
+        $overlay = $(this).parent().find('.modal-item-overlay')
+        $overlay.stop()
+        $overlay.animate({
+            opacity: 0
+        }, 'slow');
+    });
 
-	$('.modal-item-overlay').on('mouseleave', function() {
-		$overlay = $(this).parent().find('.modal-item-overlay')
-		$overlay.stop()
-		$overlay.animate({
-			opacity: 0
-		}, 'slow');
-	});
 });
