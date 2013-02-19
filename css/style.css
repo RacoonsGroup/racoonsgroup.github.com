@@ -57,6 +57,17 @@ h3 {
     font-size: 18pt;
 }
 
+.fork-me {
+    background: url('../images/forkme.png');
+    width: 149px;
+    height: 149px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: block;
+}
+
 /*Modal*/
 .modal-item-wrap {
     position: relative;

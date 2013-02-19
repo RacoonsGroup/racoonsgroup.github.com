@@ -73,7 +73,6 @@ jQuery(function($) {
                 if ($(window).width() > 959) {
                     App.setOurHeightAndPadding(this.$aboutUs, this.$portfolio, this.$team)
                 } else {
-                    App.resetZoom()
                     App.unsetOurHeightAndPadding(this.$aboutUs, this.$portfolio, this.$team)
                 }
             },
@@ -86,7 +85,11 @@ jQuery(function($) {
                     $(this).css('height', $(window).height());
                     $(this).find('.container').css({
                         paddingTop: padding,
-                        zoom: scaleValue
+                        zoom: scaleValue,
+                        '-moz-transform': 'scale('+ scaleValue +')',
+                        '-moz-transform-origin': 'top',
+                        '-o-transform': 'scale('+ scaleValue +')',
+                        '-o-transform-origin': 'top'
                     })
                 });
             },
@@ -95,21 +98,11 @@ jQuery(function($) {
                 $.each(arguments, function() {
                     $(this).css('height', 'auto')
                     $(this).find('.container').css({
-                        paddingTop: 0
+                        paddingTop: 0,
+                        zoom: 1
                     })
                 })
 
-            },
-
-            setZoom: function() {
-                if (!App.mobileDevice()) {
-                    var scaleValue = $(window).height()/750
-                    $('.page .container').css('zoom', scaleValue)
-                }
-            },
-
-            resetZoom: function() {
-                $('body').css('zoom', 1)
             },
 
             scrollPage: function (event, delta, deltaX, deltaY) {
