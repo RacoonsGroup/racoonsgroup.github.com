@@ -151,7 +151,7 @@ h3 {
 }
 .top-nav a {
     color: #000;
-    font-size: 18pt;
+    font-size: 17pt;
     padding: 5px 10px;
     margin: 0 10px;
 }
@@ -227,7 +227,6 @@ h3 {
     text-transform: uppercase;
     color: #fff;
     display: inline-block;
-    padding: 5px;
     line-height: 25px;
 }
 .orangered {
@@ -345,4 +344,18 @@ h3 {
     height: 115px;
     overflow: hidden;
     background-position: top center;
+}
+
+/*Feedback*/
+.feedback-person {
+    height: 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline;
+}
+.feedback-about {
+    display: inline;
+}
+.feedback-info {
+    padding-bottom: 20px;
 }

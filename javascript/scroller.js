@@ -18,12 +18,16 @@ jQuery(function($) {
                 this.$navigation = $('#navigation a')
                 //Main Page
                 this.$mainPage = $('.main-page')
+                //All pages
+                this.$allPages = $('.page')
                 //About Us
                 this.$aboutUs = $('.about-us')
                 //Portfolio
                 this.$portfolio = $('.portfolio')
                 //Team
                 this.$team = $('.team')
+                //Feedback
+                this.$feedback = $('.feedback')
             },
 
             bindEvents: function() {
@@ -71,9 +75,11 @@ jQuery(function($) {
                 App.activeMenuItem(0)
 
                 if ($(window).width() > 959) {
-                    App.setOurHeightAndPadding(this.$aboutUs, this.$portfolio, this.$team)
+                    //App.setOurHeightAndPadding(this.$aboutUs, this.$portfolio, this.$team)
+                    App.setOurHeightAndPadding(this.$allPages)
                 } else {
-                    App.unsetOurHeightAndPadding(this.$aboutUs, this.$portfolio, this.$team)
+                    App.unsetOurHeightAndPadding(this.$allPages)
+                    //App.unsetOurHeightAndPadding(this.$aboutUs, this.$portfolio, this.$team)
                 }
             },
 
@@ -111,7 +117,7 @@ jQuery(function($) {
                 App.$pageWraper.stop(true, true)
 
                 if (deltaY < 0) {
-                    if (now != -2*$(window).height()) {
+                    if (now != -3*$(window).height()) {
                         var scrollTo = now - $(window).height() + 'px'
                     }
                 } else {
