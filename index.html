@@ -24,6 +24,7 @@
     <script type="text/javascript" src="javascript/portfolio.js"></script>
     <script type="text/javascript" src="javascript/scroller.js"></script>
     <script type="text/javascript" src="javascript/desktop-scripts.js"></script>
+    <script type="text/javascript" src="javascript/change_language.js"></script>
 
 
     <!--[if IE 7]>
@@ -70,10 +71,15 @@
 </div>
 <!-- modals end -->
 <!--Navigation-->
+
 <div class="top-nav visible-desktop">
+
     <div class="container">
+        
         <div class="row">
             <div class="span4 offset1 top-nav-logo">
+                <input type="button" value="RU" onclick="to_russian();">
+                <input type="button" value="ENG" onclick="to_english();">
                 <img src="images/racoons_logo.png" alt="Racoons group">
             </div>
             <div class="span6 offset1 ">
@@ -82,6 +88,11 @@
                     <li><a data-scroll-id="1" href="#">Наши работы</a></li>
                     <li><a data-scroll-id="2" href="#">Команда</a></li>
                     <li><a data-scroll-id="3" href="#">Отзывы</a></li>
+                </ul>
+                <ul id="navigation_en">
+                    <li><a class="active" data-scroll-id="0" href="#">About us</a></li>
+                    <li><a data-scroll-id="1" href="#">Our projects</a></li>
+                    <li><a data-scroll-id="2" href="#">Team</a></li>
                 </ul>
             </div>
         </div>
