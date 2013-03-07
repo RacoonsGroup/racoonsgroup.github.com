@@ -26,6 +26,19 @@
     .person-10 {
         background-image: url('../images/person10.png');
     }
+
+    .feedback-1 {
+        background-image: url('../images/dl.png');
+    }
+    .feedback-2 {
+        background-image: url('../images/ag.jpg');
+    }
+    .feedback-3 {
+        background-image: url('../images/mz.png');
+    }
+    .feedback-4 {
+        background-image: url('../images/km.png');
+    }
 }
 
 * {
@@ -168,6 +181,11 @@ h3 {
     color: #fff;
     height: 30px;
     line-height: 30px;
+}
+.active-lang {
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
 }
 
 .page .container {
