@@ -26,9 +26,21 @@ jQuery(function($) {
                     .removeClass('active-lang')
 
                 if (lang == 'ru') {
-                    $('body').load('/index_ru.html')
+                    $('body').load(
+                        '/index_ru.html',
+                        function() {
+                            $(window).off('mousewheel click touchstart');
+                            App.init();
+                        }
+                    )
                 } else {
-                    $('body').load('/index_en.html')
+                    $('body').load(
+                        '/index_en.html',
+                        function() {
+                            $(window).off('mousewheel click touchstart');
+                            App.init();
+                        }
+                    )
                 }
 
                 LangSwitcher.saveLang(lang)
