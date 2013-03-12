@@ -20,14 +20,6 @@ jQuery(function($) {
                 this.$mainPage = $('.main-page')
                 //All pages
                 this.$allPages = $('.page')
-                //About Us
-                this.$aboutUs = $('.about-us')
-                //Portfolio
-                this.$portfolio = $('.portfolio')
-                //Team
-                this.$team = $('.team')
-                //Feedback
-                this.$feedback = $('.feedback')
             },
 
             bindEvents: function() {
@@ -37,8 +29,7 @@ jQuery(function($) {
                 })
 
                 $(window).resize(function() {
-                    $(window).off('mousewheel click touchstrat')
-                    App.init()
+                    App.reinit()
                 })
 
                 this.$navigation.on('click touchstart',function(event) {
@@ -70,16 +61,19 @@ jQuery(function($) {
                 }
             },
 
+            reinit: function() {
+                $(window).off('mousewheel click touchstrat')
+                App.init()
+            },
+
             setParams: function() {
                 this.$pageWraper.css('marginTop', 0)
                 App.activeMenuItem(0)
 
                 if ($(window).width() > 959) {
-                    //App.setOurHeightAndPadding(this.$aboutUs, this.$portfolio, this.$team)
                     App.setOurHeightAndPadding(this.$allPages)
                 } else {
                     App.unsetOurHeightAndPadding(this.$allPages)
-                    //App.unsetOurHeightAndPadding(this.$aboutUs, this.$portfolio, this.$team)
                 }
             },
 

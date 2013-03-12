@@ -12,7 +12,7 @@ jQuery(function($) {
 		}, 'slow');
 	});
 
-    $('.portfolio-item-overlay').click(function(event) {
+    $(document).on('click', '.portfolio-item-overlay', function(event) {
         if (!App.mobileDevice() || App.iPad() ) {
             event.preventDefault()
 
@@ -43,18 +43,22 @@ jQuery(function($) {
         }
     })
 
-	$('.more-info').toggle(function() {
-		$overlay = $(this).parent().find('.modal-item-overlay')
-		$overlay.stop()
-		$overlay.animate({
-			opacity: 1
-		}, 'slow');
-	}, function() {
-        $overlay = $(this).parent().find('.modal-item-overlay')
+    $(document).on('click', '.more-info', function() {
+        console.log($('.modal-item-overlay').css('opacity'))
+        if ($('.modal-item-overlay').css('opacity') == 1) {
+            descriptionShowHide(0)
+        } else {
+            descriptionShowHide(1)
+        }
+
+    })
+
+    function descriptionShowHide(opacityValue) {
+        $overlay = $('.modal-item-overlay')
         $overlay.stop()
         $overlay.animate({
-            opacity: 0
+            opacity: opacityValue
         }, 'slow');
-    });
+    }
 
 });
